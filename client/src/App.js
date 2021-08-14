@@ -10,9 +10,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //components
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/Login';
 import Register from './components/Register';
+import Landing from './components/Landing';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -46,6 +47,15 @@ function App() {
         <Router>
           <div className="container">
             <Switch>
+              <Route 
+                exact path="/" 
+                render={props => 
+                !isAuthenticated ? (
+                  <Landing {...props} />
+                ) : ( 
+                  <Redirect to="/dashboard" /> 
+                )} 
+              />
               <Route 
                 exact path="/login" 
                 render={props => 
