@@ -4,7 +4,6 @@ const EditTodo = ({ todo, setTodosChange }) => {
   const [description, setDescription] = useState(todo.description);
 
   //edit description function
-
   const updateDescription = async e => {
     e.preventDefault();
     try {
@@ -22,8 +21,8 @@ const EditTodo = ({ todo, setTodosChange }) => {
         }
       );
 
-      setTodosChange(true);
-      //window.location = "/";
+      setTodosChange(true); //cause the useEffect function on Dashboard Component to run and prevent page refresh
+
     } catch (err) {
       console.error(err.message);
     }
