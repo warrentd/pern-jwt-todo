@@ -35,8 +35,8 @@ const Dashboard = ({ setAuth }) => {
 
     //runs the useEffect function to prevent page refresh
     useEffect(() => {
-        getProfile();
-        setTodosChange(false);
+        getProfile(); //notices that the state has changed and gets all todos and profile information again
+        setTodosChange(false); //sets Todos state back to false so that when another change happens, it reruns the useEffect function
     }, [todosChange]);
 
     return (
